@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NHL Polymarket Trader</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell" data-view="list">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="league-label">NHL</p>
+          <h1 id="screen-title">Games</h1>
+        </div>
+        <div class="status" id="status">Checking server</div>
+      </header>
+
+      <section class="view-switcher" aria-label="Page switcher">
+        <button class="view-tab" type="button" data-view-tab="markets" aria-pressed="true">Markets</button>
+        <button class="view-tab" type="button" data-view-tab="latency" aria-pressed="false">Latency</button>
+      </section>
+
+      <section class="league-switcher" id="league-switcher" aria-label="League switcher">
+        <button class="league-tab" type="button" data-league="nhl" aria-pressed="true">NHL</button>
+        <button class="league-tab" type="button" data-league="mlb" aria-pressed="false">MLB</button>
+      </section>
+
+      <section class="controls" aria-label="Order controls">
+        <button id="back" class="icon-button" type="button" hidden aria-label="Back">←</button>
+        <button id="refresh" type="button">Refresh</button>
+      </section>
+
+      <section id="message" class="message" hidden></section>
+      <section id="games" class="games" aria-live="polite"></section>
+      <section id="detail" class="detail" aria-live="polite" hidden></section>
+      <section id="trade-log" class="trade-log" aria-live="polite"></section>
+      <section id="latency-page" class="latency-page" aria-live="polite" hidden></section>
+    </main>
+
+    <template id="game-template">
+      <button class="game" type="button">
+        <div class="game-meta">
+          <div>
+            <p class="time"></p>
+            <h2></h2>
+          </div>
+          <p class="market"></p>
+        </div>
+        <div class="teams"></div>
+      </button>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
