@@ -882,15 +882,15 @@ async function placeOrder(input) {
       const latestPrice = Number(latestSide.orderPrice);
       console.log("latestSide", latestSide);
       console.log("latest price", latestSide?.orderPrice);
-      closePosition({
-      action: "sell",
-      marketSlug,
-      marketTitle,
-      teamName,
-      Number(latestSide.orderPrice),
-      sideLong: latestSide.long,
-      league,
-      });
+closePosition({
+  action: "sell",
+  marketSlug,
+  marketTitle,
+  teamName,
+  orderPrice: Number(latestSide.orderPrice),
+  sideLong: latestSide.long,
+  league,
+});
     }, 5000);
     return {
       ...filled,
