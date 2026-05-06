@@ -886,7 +886,7 @@ async function placeOrder(input) {
       marketTitle,
       teamName,
       latestPrice,
-      sideLong,
+      sideLong: latestSide.long,,
       league,
       });
     }, 5000);
