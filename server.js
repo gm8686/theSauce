@@ -872,7 +872,7 @@ async function placeOrder(input) {
     });
 
     
-    setTimeout(() => {
+    setTimeout(async () => {
       const latestGames = await getLeagueGames(league);
       const latestGame = latestGames.find((g) => g.market.slug === marketSlug);
       const latestSide = latestGame?.sides.find((s) => s.name === teamName);
