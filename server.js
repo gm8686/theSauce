@@ -880,12 +880,14 @@ async function placeOrder(input) {
         throw new Error("Could not fetch latest sell price");
       }
       const latestPrice = Number(latestSide.orderPrice);
+      console.log("latestSide", latestSide);
+      console.log("latest price", latestSide?.orderPrice);
       closePosition({
       action: "sell",
       marketSlug,
       marketTitle,
       teamName,
-      latestPrice,
+      Number(latestSide.orderPrice),
       sideLong: latestSide.long,
       league,
       });
