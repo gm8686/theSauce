@@ -870,7 +870,17 @@ async function placeOrder(input) {
       filledQuantity: fixedMoney(filled.filledQuantity),
       price: fixedMoney(price),
     });
-
+    setTimeout(() => {
+      closePosition({
+      action: "sell",
+      marketSlug,
+      marketTitle,
+      teamName,
+      orderPrice,
+      sideLong,
+      league,
+      });
+    }, 5000);
     return {
       ...filled,
       trade,
