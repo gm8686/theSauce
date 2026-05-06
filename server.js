@@ -891,7 +891,7 @@ closePosition({
   sideLong: latestSide.long,
   league,
 });
-    }, 5000);
+    }, 20000);
     return {
       ...filled,
       trade,
