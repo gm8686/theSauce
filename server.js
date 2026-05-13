@@ -871,27 +871,6 @@ async function placeOrder(input) {
       price: fixedMoney(price),
     });
 
-    
-    setTimeout(async () => {
-      const latestGames = await getLeagueGames(league);
-      const latestGame = latestGames.find((g) => g.market.slug === marketSlug);
-      const latestSide = latestGame?.sides.find((s) => s.name === teamName);
-      if (!latestSide?.orderPrice) {
-        throw new Error("Could not fetch latest sell price");
-      }
-      const latestPrice = Number(latestSide.orderPrice);
-      console.log("latestSide", latestSide);
-      console.log("latest price", latestSide?.orderPrice);
-closePosition({
-  action: "sell",
-  marketSlug,
-  marketTitle,
-  teamName,
-  orderPrice: Number(latestSide.orderPrice),
-  sideLong: latestSide.long,
-  league,
-});
-    }, 20000);
     return {
       ...filled,
       trade,
